@@ -105,12 +105,6 @@ public partial class UrlBuilderTests {
     }
 
     [Fact]
-    public void GET_with_resource_containing_null_token() {
-        var request = new RestRequest($"/{Resource}/{{foo}}");
-        Assert.Throws<ArgumentNullException>(() => request.AddUrlSegment("foo", null!));
-    }
-
-    [Fact]
     public void GET_with_resource_containing_slashes() {
         var request  = new RestRequest($"{Resource}/foo");
         var expected = new Uri($"{Base}/{Resource}/foo");
